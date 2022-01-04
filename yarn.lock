@@ -2167,9 +2167,7 @@
     "esutils" "^2.0.2"
     "js-tokens" "^3.0.2"
 
-"babel-core@^6.0.0 || ^7.0.0-0", "babel-core@7.0.0-bridge.0":
-  "integrity" "sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg=="
-  "resolved" "https://registry.npmjs.org/babel-core/-/babel-core-7.0.0-bridge.0.tgz"
+"babel-core@^6.0.0 || ^7.0.0-0":
   "version" "7.0.0-bridge.0"
 
 "babel-core@^6.0.0", "babel-core@^6.26.0":
@@ -2196,6 +2194,11 @@
     "private" "^0.1.8"
     "slash" "^1.0.0"
     "source-map" "^0.5.7"
+
+"babel-core@7.0.0-bridge.0":
+  "integrity" "sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg=="
+  "resolved" "https://registry.npmjs.org/babel-core/-/babel-core-7.0.0-bridge.0.tgz"
+  "version" "7.0.0-bridge.0"
 
 "babel-eslint@9.0.0", "babel-eslint@9.x":
   "integrity" "sha512-itv1MwE3TMbY0QtNfeL7wzak1mV47Uy+n6HtSOO4Xd7rvmO+tsGQSgyOEEgo6Y2vHZKZphaoelNeSVj4vkLA1g=="
@@ -2238,15 +2241,7 @@
     "babel-runtime" "^6.22.0"
     "babel-template" "^6.24.1"
 
-"babel-jest@^23.6.0":
-  "integrity" "sha512-lqKGG6LYXYu+DQh/slrQ8nxXQkEkhugdXsU6St7GmhVS7Ilc/22ArwqXNJrf0QaOBjZB0360qZMwXqDYQHXaew=="
-  "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-23.6.0.tgz"
-  "version" "23.6.0"
-  dependencies:
-    "babel-plugin-istanbul" "^4.1.6"
-    "babel-preset-jest" "^23.2.0"
-
-"babel-jest@23.6.0":
+"babel-jest@^23.6.0", "babel-jest@23.6.0":
   "integrity" "sha512-lqKGG6LYXYu+DQh/slrQ8nxXQkEkhugdXsU6St7GmhVS7Ilc/22ArwqXNJrf0QaOBjZB0360qZMwXqDYQHXaew=="
   "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-23.6.0.tgz"
   "version" "23.6.0"
@@ -9177,7 +9172,7 @@
     "tiny-invariant" "^1.0.2"
     "tiny-warning" "^1.0.0"
 
-"react-scripts@^2.1.3":
+"react-scripts@^2.1.8":
   "integrity" "sha512-mDC8fYWCyuB9VROti8OCPdHE79UEchVVZmuS/yaIs47VkvZpgZqUvzghYBswZRchqnW0aARNY8xXrzoFRhhK7A=="
   "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-2.1.8.tgz"
   "version" "2.1.8"
