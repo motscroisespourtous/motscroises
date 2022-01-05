@@ -85,7 +85,7 @@ function CategoryTiles() {
                                   onClick={() => {showFull(index);
                                 }}><span aria-hidden='true'>X</span></button>)
                               }
-                              <div className={classes.gridItemInner} style={{ backgroundImage: `url(category/${c.illustration})`}}> 
+                              <div className={classes.gridItemInner} style={{ backgroundImage: `url(/category/${c.illustration})`}}> 
                                 {!(isExpanded && index === isIndex)  && (
                                 <button className={classes.tileButton} onClick={() => {
                                     setGridListByCategory(c.theme);

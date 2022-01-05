@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Pour Enfant",
+        "illustration": "enfant.jpg" ,
+        "theme": "enfant",
+        "additionalWidthCss": "",
+        "additionalHeightCss": ""
+    },
+    {
+        "id": 2,
+        "name": "Art et Culture",
+        "illustration": "art.jpg" ,
+        "theme": "art",
+        "additionalWidthCss": "",
+        "additionalHeightCss": ""
+    },
+    {
+        "id": 3,
+        "name": "Histoire",
+        "illustration": "histoire.jpg",
+        "theme": "histoire",
+        "additionalWidthCss": "",
+        "additionalHeightCss": "" 
+    },
+    {
+        "id": 4,
+        "name": "Nature",
+        "illustration": "nature.jpg",
+        "theme": "nature",
+        "additionalWidthCss": "",
+        "additionalHeightCss": "" 
+    },
+    {
+        "id": 5,
+        "name": "Sport",
+        "illustration": "sport.jpg",
+        "theme": "sport",
+        "additionalWidthCss": "",
+        "additionalHeightCss": "" 
+    },
+    {
+        "id": 6,
+        "name": "Science et Technologie",
+        "illustration": "science.jpg",
+        "theme": "science",
+        "additionalWidthCss": "",
+        "additionalHeightCss": ""
+    },
+    {
+        "id": 7,
+        "name": "Géographie",
+        "illustration": "geo.jpg",
+        "theme": "geo",
+        "additionalWidthCss": "",
+        "additionalHeightCss": "" 
+    }
+]   
