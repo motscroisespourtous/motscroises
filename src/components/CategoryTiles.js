@@ -5,6 +5,14 @@ import * as histoires from './HistoireIndex';
 import categories from '../data/categories.json';
 import list from '../data/list.json';
 import {useStyles} from './CategoryTiles.styles';
+// import bgArt from '../assets/category/art.jpg';
+// import bgEnfant from '../assets/category/enfant.jpg';
+// import bgGeo from '../assets/category/geo.jpg';
+// import bgHistoire from '../assets/category/histoire.jpg';
+// import bgNature from '../assets/category/nature.jpg';
+// import bgScience from '../assets/category/science.jpg';
+// import bgSport from '../assets/category/sport.jpg';
+
 
 
 function CategoryTiles() {
@@ -67,6 +75,12 @@ function CategoryTiles() {
         } else return false;
     }
 
+    // function setCatgoryImage({illustration}){
+    //   console.log(illustration)
+    //   if(illustration === Art) { return Art};
+
+    // }
+
     return (
         <>
             <ul className={classes.grid}>
@@ -76,6 +90,7 @@ function CategoryTiles() {
                             key={c.name}  
                             className={`${classes[c.additionalWidthCss]} ${classes[c.additionalHeightCss]} ${classes.gridItem} ${isExpanded && index === isIndex ? classes.opened :  '' }`}
                             >
+                               
                             <h2>{c.name}</h2>
                             <div className={`${classes.tileWrapper} ${isExpanded && index === isIndex ? classes.smallTile :  '' }`}>
                               {isExpanded && index === isIndex && (
@@ -85,7 +100,8 @@ function CategoryTiles() {
                                   onClick={() => {showFull(index);
                                 }}><span aria-hidden='true'>X</span></button>)
                               }
-                              <div className={classes.gridItemInner} style={{ backgroundImage: `url(category/${c.illustration})`}}> 
+                             
+                              <div className={classes.gridItemInner} style={{ backgroundImage: `url(${require(`../assets/category/${c.illustration}`)} )`}}> 
                                 {!(isExpanded && index === isIndex)  && (
                                 <button className={classes.tileButton} onClick={() => {
                                     setGridListByCategory(c.theme);
@@ -94,15 +110,6 @@ function CategoryTiles() {
                                     showFull(index);
                                     }}>Voir les grilles {c.name}</button> 
                                 )}
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                               </div>
                             </div>
                             {isExpanded && index === isIndex && (<div className={classes.listItemsWrapper}>
