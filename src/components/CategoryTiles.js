@@ -109,7 +109,7 @@ function CategoryTiles() {
                                     setCurrentArtIndex();
                                     showFull(index);
                                     }}>Voir les grilles {c.name}</button> 
-                                )}
+                                )} 
                               </div>
                             </div>
                             {isExpanded && index === isIndex && (<div className={classes.listItemsWrapper}>
