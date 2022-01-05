@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.crossword{}
+.correct{}
+.grid{}
+.clues{}
+.direction{}
+.header{}
+.clue{}
+.correct{
+  background-color: green;
+}
