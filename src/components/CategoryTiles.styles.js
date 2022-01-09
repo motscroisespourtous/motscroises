@@ -160,6 +160,7 @@ listItems: {
 
 listItemsWrapper: {
   boxShadow: '2px 5px 9px -1px rgb(0 0 0 / 14%)',
+  position: 'relative',
 },
 
 

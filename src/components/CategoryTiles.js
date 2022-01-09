@@ -75,12 +75,6 @@ function CategoryTiles() {
         } else return false;
     }
 
-    // function setCatgoryImage({illustration}){
-    //   console.log(illustration)
-    //   if(illustration === Art) { return Art};
-
-    // }
-
     return (
         <>
             <ul className={classes.grid}>
@@ -118,7 +112,7 @@ function CategoryTiles() {
                                 <ul className={classes.listItems}>
                                   {listResult.map((grid, index) => {
                                     return (
-                                      <li>
+                                      <li key={`${index}${grid}`}>
                                         <GridContainer grid={grid} index={index}/>    
                                       </li>
                                     );

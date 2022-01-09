@@ -1,6 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react';
 import '../../../App.css';
 import Crossword, { ThemeProvider } from '@jaredreisinger/react-crossword';
+import {useStyles} from '../Grid.styles';
+import {art1Styles} from './Art1.styles';
 
 const data = {
   across: {
@@ -22,6 +24,8 @@ const data = {
 };
 
 function Art1() {
+  const classes = useStyles();
+  const classesArt1 = art1Styles();
   const art1 = useRef();
 
   const focus = useCallback((event) => {
@@ -34,6 +38,7 @@ function Art1() {
 
   const reset = useCallback((event) => {
     art1.current.reset();
+    setMessages('');
   }, []);
 
   const [messages, setMessages] = useState([]);
@@ -65,7 +70,7 @@ function Art1() {
 
   const onCrosswordCorrect = useCallback(
     (isCorrect) => {
-      addMessage(`onCrosswordCorrect: ${JSON.stringify(isCorrect)}`);
+      isCorrect && addMessage(`Felicitation !! Grille complétéé`);
     },
     [addMessage]
   );
@@ -79,32 +84,44 @@ function Art1() {
 
   return (
     <div>
-        <button onClick={focus}>Focus</button>
-        <button onClick={fillAllAnswers}>Fill all answers</button>
-        <button onClick={reset}>Reset</button>
+
       <ThemeProvider
         theme={{
-          columnBreakpoint: '9999px',
-          gridBackground: '#acf',
-          cellBackground: '#ffe',
-          cellBorder: '#fca',
-          textColor: '#fff',
-          numberColor: '#9f9',
-          focusBackground: '#f00',
-          highlightBackground: '#f99',
+          columnBreakpoint: '768px',
+          gridBackground: '#000',
+          cellBackground: '#fff',
+          cellBorder: '#e5e8ff',
+          textColor: '#041399',
+          numberColor: '#232324',
+          focusBackground: '#ddd',
+          highlightBackground: '#eee',
         }}
       >
-      <Crossword
-          data={data}
-          ref={art1}
-          onCorrect={onCorrect}
-          onLoadedCorrect={onLoadedCorrect}
-          onCrosswordCorrect={onCrosswordCorrect}
-          onCellChange={onCellChange}
-          defaultKey='art1'
-        />
+      <div className={`${classes.crosswordWrapper} ${classesArt1.crosswordWrapper}`}>
+        <div className={classes.buttonGroup}>
+          <button className={classes.actionButton} onClick={focus}>Focus</button>
+          <button className={classes.actionButton} onClick={fillAllAnswers}>Fill all answers</button>
+          
+        </div>
+        <Crossword
+            data={data}
+            ref={art1}
+            onCorrect={onCorrect}
+            // onLoadedCorrect={onLoadedCorrect}
+            onCrosswordCorrect={onCrosswordCorrect}
+            onCellChange={onCellChange}
+            defaultKey='art1'
+          />
+        {messages.length > 0 &&       
+          <section className={classes.success}>
+              <h4>Félicitation  !!</h4>
+              <div>Grille complétée</div>
+              <button className={classes.actionButton} onClick={reset}>Refaire la grille</button>
+         </section>
+        }
+       </div>      
       </ThemeProvider>
-        {messages}
+
     </div>
   );
 };

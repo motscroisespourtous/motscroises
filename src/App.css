@@ -45,5 +45,10 @@
 .header{}
 .clue{}
 .correct{
-  background-color: green;
+  /* background-color: green; */
+}
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 18px;
 }
