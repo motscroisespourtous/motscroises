@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const art1Styles = makeStyles(() => ({
+const histoire1Styles = makeStyles(() => ({
     crosswordWrapper:{
         '& [class*="Crossword__GridWrapper"] > div': {
             width: '150px',
@@ -8,4 +8,4 @@ const art1Styles = makeStyles(() => ({
     },
 }));
 
-export { art1Styles };
+export { histoire1Styles };

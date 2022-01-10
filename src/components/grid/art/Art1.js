@@ -23,12 +23,12 @@ const data = {
 };
 
 function Art1() {
-  const classesArt1 = art1Styles();
-  const art1 = useRef('art1');
+  const classesGrid = art1Styles();
+  const art = useRef('art1');
   const defaultKey = 'art1';
 
   return (
-    <GenericGrid genericName={art1} data={data} cssGrid={classesArt1} defaultKey={defaultKey}/>
+    <GenericGrid genericName={art} data={data} cssGrid={classesGrid} defaultKey={defaultKey}/>
   );
 };
 

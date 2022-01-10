@@ -16,7 +16,12 @@ const useStyles = makeStyles((theme) => ({
             flex: '1',
             flexDirection: 'column',
             width: '50%',
-        },     
+        },  
+        '& [class*="Crossword__OuterWrapper"]': {
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '42px',
+        },   
     },
     buttonGroup: {
         marginBottom: '24px',

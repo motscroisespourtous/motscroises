@@ -55,12 +55,12 @@ function CategoryTiles() {
                         }
                         }     
                 >
-                    art {grid.name}
+                  {grid.name}
                 </button>
             );
         } else if (grid.cat === 'histoire') {
             return (
-                <button
+                <button className={classes.itemList}
                     key={index}
                     onClick={() => {
                         setCurrentHistoireIndex(index);
@@ -68,7 +68,7 @@ function CategoryTiles() {
                     }}
                         
                 >
-                    histoire {grid.name}
+                  {grid.name}
                 </button>
             );
 
