@@ -38,14 +38,17 @@
 }
 
 .crossword{}
-.correct{}
 .grid{}
-.clues{}
-.direction{}
+.clues{
+}
+.direction{
+}
 .header{}
-.clue{}
+.clue{
+}
 .correct{
-  /* background-color: green; */
+  color: green;
+  font-weight: bold;
 }
 
 h4 {

@@ -1,7 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
 import Crossword, { ThemeProvider } from '@jaredreisinger/react-crossword';
+import {useStyles} from '../components/grid/Grid.styles';
 
-function GenericGrid({genericName, data}) {
+function GenericGrid({genericName, data, cssGrid, defaultKey}) {
+  const classes = useStyles();
   genericName = useRef();
 
   const focus = useCallback((event) => {
@@ -14,78 +16,71 @@ function GenericGrid({genericName, data}) {
 
   const reset = useCallback((event) => {
     genericName.current.reset();
+    setMessages();
   }, []);
 
-  const [messages, setMessages] = useState([]);
-
-  const addMessage = useCallback((message) => {
-    setMessages((m) => m.concat(`${message}\n`));
-  }, []);
-
-  const onCorrect = useCallback(
-    (direction, number, answer) => {
-      addMessage(`onCorrect: "${direction}", "${number}", "${answer}"`);
-    },
-    [addMessage]
-  );
-
-  const onLoadedCorrect = useCallback(
-    (answers) => {
-      addMessage(
-        `onLoadedCorrect:\n${answers
-          .map(
-            ([direction, number, answer]) =>
-              `    - "${direction}", "${number}", "${answer}"`
-          )
-          .join('\n')}`
-      );
-    },
-    [addMessage]
-  );
+  const [messages, setMessages] = useState();
 
   const onCrosswordCorrect = useCallback(
     (isCorrect) => {
-      addMessage(`onCrosswordCorrect: ${JSON.stringify(isCorrect)}`);
+      setMessages(isCorrect);
     },
-    [addMessage]
+  );
+
+  const onCorrect = useCallback(
+    (direction, number, answer) => {
+      console.log(`onCorrect: "${direction}", "${number}", "${answer}"`);
+    },
+    []
   );
 
   const onCellChange = useCallback(
     (row, col, char) => {
-      addMessage(`onCellChange: "${row}", "${col}", "${char}"`);
+      console.log(`onCellChange: "${row}", "${col}", "${char}"`);
     },
-    [addMessage]
+    []
   );
 
 
   return (
     <div>
-        <button onClick={focus}>Focus</button>
-        <button onClick={fillAllAnswers}>Fill all answers</button>
-        <button onClick={reset}>Reset</button>
-      {<ThemeProvider
+
+      <ThemeProvider
         theme={{
-          columnBreakpoint: '9999px',
-          gridBackground: '#acf',
-          cellBackground: '#ffe',
-          cellBorder: '#fca',
-          textColor: '#fff',
-          numberColor: '#9f9',
-          focusBackground: '#f00',
-          highlightBackground: '#f99',
+          columnBreakpoint: '768px',
+          gridBackground: '#000',
+          cellBackground: '#fff',
+          cellBorder: '#e5e8ff',
+          textColor: '#041399',
+          numberColor: '#232324',
+          focusBackground: '#ddd',
+          highlightBackground: '#eee',
         }}
       >
-      {<Crossword
-          data={data}
-          ref={genericName}
-          onCorrect={onCorrect}
-          onLoadedCorrect={onLoadedCorrect}
-          onCrosswordCorrect={onCrosswordCorrect}
-          onCellChange={onCellChange}
-          defaultKey= {genericName}
-        />}
-      </ThemeProvider>}
-        {messages}
+      <div className={`${classes.crosswordWrapper} ${cssGrid.crosswordWrapper}`}>
+        <div className={classes.buttonGroup}>
+          <button className={classes.actionButton} onClick={focus}>Focus</button>
+          <button className={classes.actionButton} onClick={fillAllAnswers}>Fill all answers</button>
+          
+        </div>
+        <Crossword
+            data={data}
+            ref={genericName}
+            onCorrect={onCorrect}
+            onCrosswordCorrect={onCrosswordCorrect}
+            onCellChange={onCellChange}
+            defaultKey={defaultKey}
+          />
+        {messages === true &&       
+          <section className={classes.success}>
+              <h4>Félicitation  !!</h4>
+              <div>Grille complétée</div>
+              <button className={classes.actionButton} onClick={reset}>Refaire la grille</button>
+         </section>
+        }
+       </div>      
+      </ThemeProvider>
+
     </div>
   );
 }
