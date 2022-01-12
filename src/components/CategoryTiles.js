@@ -19,7 +19,7 @@ function CategoryTiles() {
     const classes = useStyles();
     const [gridListByCategory, setGridListByCategory] = useState('');
     const [isExpanded, setExpanded] = useState(false);
-    const [isIndex, setIndex] = useState(null);
+    const [isIndex, setIndex] = useState('');
     // const [full, setFull] = useState(false);
     const [currentArtIndex, setCurrentArtIndex] = useState();
     // const [currentEnfantIndex, setCurrentEnfantIndex] = useState();
@@ -31,7 +31,8 @@ function CategoryTiles() {
 
     function showFull(index) {
         setIndex(index);
-         setExpanded(!isExpanded);     
+        console.log('index', index, 'isIndex', isIndex);
+        setExpanded(!isExpanded);     
       }
 
     const renderArtPanel = () => {
@@ -42,6 +43,7 @@ function CategoryTiles() {
         const HistoirePanel = histoires.default[currentHistoireIndex].component;
         return <HistoirePanel />;
     };
+    
     const listResult = gridListByCategory.length > 0 && list.filter(grid => grid.cat === gridListByCategory);
     const GridContainer = ({grid, index}) => {
         if (grid.cat === 'art') {
@@ -74,7 +76,7 @@ function CategoryTiles() {
 
         } else return false;
     }
-
+    // console.log(isExpanded, isIndex)
     return (
         <>
             <ul className={classes.grid}>
@@ -98,10 +100,10 @@ function CategoryTiles() {
                               <div className={classes.gridItemInner} style={{ backgroundImage: `url(${require(`../assets/category/${c.illustration}`)} )`}}> 
                                 {!(isExpanded && index === isIndex)  && (
                                 <button className={classes.tileButton} onClick={() => {
+                                    showFull(index);
                                     setGridListByCategory(c.theme);
                                     setCurrentHistoireIndex();
                                     setCurrentArtIndex();
-                                    showFull(index);
                                     }}>Voir les grilles {c.name}</button> 
                                 )} 
                               </div>

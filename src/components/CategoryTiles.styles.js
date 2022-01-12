@@ -21,6 +21,7 @@ gridItem: {
   flexDirection: 'column',
   borderColor: 'hsla(0, 0%, 0%, 0.5)',
   borderRadius: '5px',
+  marginBottom: '60px',
   position: 'relative',
 
   [theme.breakpoints.up('lg')]: {
