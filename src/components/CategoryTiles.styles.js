@@ -24,28 +24,29 @@ gridItem: {
   marginBottom: '60px',
   position: 'relative',
 
-  [theme.breakpoints.up('lg')]: {
-        width: '12.5%',
-  },
-  
-  [theme.breakpoints.between('md','lg')]: {
-        width: '25%', 
-  },
-  
-  [theme.breakpoints.between('sm','md')]: {
-        width: '50%',
-  },
 
-  [theme.breakpoints.down('xs')]: {
-        width: '100%',
-  },
   '& > h2': {
     marginBottom: '8px',
   },
-  
 },
+gridClosed: {
+  [theme.breakpoints.up('lg')]: {
+    width: '12.5%',
+  },
 
-opened: {
+  [theme.breakpoints.between('md','lg')]: {
+      width: '25%', 
+  },
+
+  [theme.breakpoints.between('sm','md')]: {
+      width: '50%',
+  },
+
+  [theme.breakpoints.down('xs')]: {
+      width: '100%',
+  },
+},
+gridOpened: {
   width: '100%',
   '& > h2': {
     top: 0,
@@ -56,6 +57,7 @@ opened: {
     fontSize: '42px',
   },
 }, 
+
 
 gridItemInner: {
   backgroundRepeat: 'no-repeat',
@@ -87,6 +89,12 @@ gridItemWidth3: {
 //   height: '720px;',
 // },
 
+listClosed: {
+  display: 'none',
+},
+listOpened: {
+  display: 'block',
+},
 
 tileWrapper: {
   height: '360px',

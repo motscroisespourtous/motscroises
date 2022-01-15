@@ -3,24 +3,15 @@ import PropTypes from 'prop-types';
 import * as arts from './ArtIndex';
 import * as histoires from './HistoireIndex';
 import categories from '../data/categories.json';
-import list from '../data/list.json';
+import gridList from '../data/gridList.json';
 import {useStyles} from './CategoryTiles.styles';
-// import bgArt from '../assets/category/art.jpg';
-// import bgEnfant from '../assets/category/enfant.jpg';
-// import bgGeo from '../assets/category/geo.jpg';
-// import bgHistoire from '../assets/category/histoire.jpg';
-// import bgNature from '../assets/category/nature.jpg';
-// import bgScience from '../assets/category/science.jpg';
-// import bgSport from '../assets/category/sport.jpg';
-
-
 
 function CategoryTiles() {
     const classes = useStyles();
-    const [gridListByCategory, setGridListByCategory] = useState('');
+    const [activeId, setActiveId] = useState();
     const [isExpanded, setExpanded] = useState(false);
-    const [isIndex, setIndex] = useState('');
-    // const [full, setFull] = useState(false);
+    const [, setIndex] = useState('');
+    const [list, setList] = useState();
     const [currentArtIndex, setCurrentArtIndex] = useState();
     // const [currentEnfantIndex, setCurrentEnfantIndex] = useState();
     // const [currentGeoIndex, setCurrentGeoIndex] = useState();
@@ -29,11 +20,13 @@ function CategoryTiles() {
     // const [currentScienceIndex, setCurrentScienceIndex] = useState();
     // const [currentSportIndex, setCurrenSportIndex] = useState();
 
-    function showFull(index) {
-        setIndex(index);
-        console.log('index', index, 'isIndex', isIndex);
-        setExpanded(!isExpanded);     
-      }
+    function hide(){
+      setActiveId();
+    }
+
+    function displayList(index) {
+      setList(index);
+    }
 
     const renderArtPanel = () => {
       const ArtPanel = arts.default[currentArtIndex].component;
@@ -44,9 +37,9 @@ function CategoryTiles() {
         return <HistoirePanel />;
     };
     
-    const listResult = gridListByCategory.length > 0 && list.filter(grid => grid.cat === gridListByCategory);
     const GridContainer = ({grid, index}) => {
-        if (grid.cat === 'art') {
+      console.log(grid[0].name, index);
+        if (grid[0].name === 'art') {
             return (
                 <button className={classes.itemList}
                     key={index}
@@ -57,10 +50,10 @@ function CategoryTiles() {
                         }
                         }     
                 >
-                  {grid.name}
+                  {grid[0].name}
                 </button>
             );
-        } else if (grid.cat === 'histoire') {
+        } else if (grid[0].name === 'histoire') {
             return (
                 <button className={classes.itemList}
                     key={index}
@@ -70,59 +63,61 @@ function CategoryTiles() {
                     }}
                         
                 >
-                  {grid.name}
+                  {grid[0].name}
                 </button>
             );
 
         } else return false;
     }
-    // console.log(isExpanded, isIndex)
+
     return (
-        <>
+      <>
             <ul className={classes.grid}>
                 { categories.map((c, index) => {
+                      const gridListResult = gridList.filter(grid => grid.id === index + 1);
+                      const gridL = gridListResult[0].obj;
                     return (
                         <li 
                             key={c.name}  
-                            className={`${classes[c.additionalWidthCss]} ${classes[c.additionalHeightCss]} ${classes.gridItem} ${isExpanded && index === isIndex ? classes.opened :  '' }`}
+                            className={`${classes.gridItem} ${activeId === c.id ? classes.gridOpened :  classes.gridClosed}`}
                             >
                                
                             <h2>{c.name}</h2>
-                            <div className={`${classes.tileWrapper} ${isExpanded && index === isIndex ? classes.smallTile :  '' }`}>
-                              {isExpanded && index === isIndex && (
+                            <div className={`${classes.tileWrapper} ${activeId === c.id ? classes.smallTile :  '' }`}>
+                              {activeId === c.id && (
                                 <button 
                                   aria-label={`Fermer la liste ${c.name}`}
                                   className={classes.closeButton} 
-                                  onClick={() => {showFull(index);
+                                  onClick={() => {hide(c.id);
                                 }}><span aria-hidden='true'>X</span></button>)
                               }
                              
                               <div className={classes.gridItemInner} style={{ backgroundImage: `url(${require(`../assets/category/${c.illustration}`)} )`}}> 
-                                {!(isExpanded && index === isIndex)  && (
+                                {!(activeId === c.id)  && (
+                                  <>
                                 <button className={classes.tileButton} onClick={() => {
-                                    showFull(index);
-                                    setGridListByCategory(c.theme);
+                                    setActiveId(c.id);
+                                    displayList(c.id);
                                     setCurrentHistoireIndex();
                                     setCurrentArtIndex();
                                     }}>Voir les grilles {c.name}</button> 
+                                
+                                </>
                                 )} 
+
                               </div>
                             </div>
-                            {isExpanded && index === isIndex && (<div className={classes.listItemsWrapper}>
-                              { listResult.length > 0 && (
-                                
+                              <div className={`${classes.gridList} ${activeId === c.id ? classes.listOpened : classes.listClosed}`}>
+                              {(list && gridL.length > 0) && (
                                 <ul className={classes.listItems}>
-                                  {listResult.map((grid, index) => {
+                                  {gridL.map((l, index) => {
+                                   
                                     return (
-                                      <li key={`${index}${grid}`}>
-                                        <GridContainer grid={grid} index={index}/>    
-                                      </li>
+                                      <li key={l}>{l}  <GridContainer grid={gridListResult} index={index}/> </li>
                                     );
-                                  })}                 
+                                  })}
                                 </ul>
-                              )
-                              
-                              }
+                              )}
                               {
                                 currentArtIndex !== undefined && (
                                  <div>{renderArtPanel()}</div>                
@@ -131,16 +126,20 @@ function CategoryTiles() {
                               {
                                 currentHistoireIndex !== undefined && (
                                  <div>{renderHistoirePanel()}</div>
-                      
                                 )
                               } 
-                            </div>)}
+                            </div>
+
                         </li>
                     );
                 })}
             </ul>
-        </>
+      </>
     );
+
+
+
+
 }
 
 CategoryTiles.propTypes = {
