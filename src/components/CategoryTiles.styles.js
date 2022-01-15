@@ -96,6 +96,16 @@ listOpened: {
   display: 'block',
 },
 
+gridList: {
+  backgroundColor: '#1d5c9359',
+  border: 'solid 1px #1c99ff',
+  borderTop: 'none',
+  borderBottomLeftRadius: '5px',
+  borderBottomRightRadius: '5px',
+  boxShadow: '2px 5px 9px -1px rgb(0 0 0 / 14%)',
+  margin: '0 25px 0 1px',
+},
+
 tileWrapper: {
   height: '360px',
   position: 'relative',
@@ -145,7 +155,7 @@ listItems: {
   display: 'flex',
   flexWrap: 'wrap',
   listStyleType: 'none',
-  margin: '0 24px 60px 0',
+  margin: '0 0 60px 0',
   padding: '24px',
   '& li': {
     marginBottom: '12px',
@@ -171,7 +181,9 @@ listItemsWrapper: {
   boxShadow: '2px 5px 9px -1px rgb(0 0 0 / 14%)',
   position: 'relative',
 },
-
+crosswordSelected: {
+  border: 'solid 1px red',
+},
 
 }));
 

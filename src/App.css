@@ -40,7 +40,10 @@ body{
   }
 }
 
-.crossword{}
+.crossword{
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 5px;
+}
 .grid{}
 .clues{
 }
@@ -58,3 +61,4 @@ h4 {
   font-size: 20px;
   margin-bottom: 18px;
 }
+

@@ -6,16 +6,16 @@ export default function Header() {
   const classes = useStyles();
   return (
     <div className={classes.headerWrapper}>
-      <div className={classes.bg}></div>
       <header className={classes.root} role='banner'>  
-            <nav>
-              <ul>
-                <li><NavLink activeClassName='is--active' exact to="/home">Accueil</NavLink></li>
-                <li>
-                  <NavLink activeClassName='is--active' to="/about">A propos</NavLink >
-                </li>                                               
-              </ul> 
-            </nav>
+        <div className={classes.title}>Jeux pour tous</div>
+        <nav>
+          <ul>
+            <li><NavLink activeClassName='is--active' exact to="/home">Mots croises</NavLink></li>
+            <li>
+              <NavLink activeClassName='is--active' to="/about">Autres</NavLink >
+            </li>                                               
+          </ul> 
+        </nav>
       </header>
     </div>
   );

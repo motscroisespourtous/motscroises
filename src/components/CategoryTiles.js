@@ -9,8 +9,7 @@ import {useStyles} from './CategoryTiles.styles';
 function CategoryTiles() {
     const classes = useStyles();
     const [activeId, setActiveId] = useState();
-    const [isExpanded, setExpanded] = useState(false);
-    const [, setIndex] = useState('');
+    const [isSelected, setSelected] = useState();
     const [list, setList] = useState();
     const [currentArtIndex, setCurrentArtIndex] = useState();
     // const [currentEnfantIndex, setCurrentEnfantIndex] = useState();
@@ -37,20 +36,20 @@ function CategoryTiles() {
         return <HistoirePanel />;
     };
     
-    const GridContainer = ({grid, index}) => {
-      console.log(grid[0].name, index);
+    const GridContainer = ({grid, gridName, index}) => {
         if (grid[0].name === 'art') {
             return (
                 <button className={classes.itemList}
                     key={index}
                     onClick={() => 
-                        {
-                            setCurrentArtIndex(index);
-                            setCurrentHistoireIndex();
-                        }
-                        }     
+                      {
+                          setCurrentArtIndex(index);
+                          setCurrentHistoireIndex();
+                          setSelected(index);
+                      }
+                    }     
                 >
-                  {grid[0].name}
+                  {gridName}
                 </button>
             );
         } else if (grid[0].name === 'histoire') {
@@ -60,6 +59,7 @@ function CategoryTiles() {
                     onClick={() => {
                         setCurrentHistoireIndex(index);
                         setCurrentArtIndex();
+                        setSelected(index);
                     }}
                         
                 >
@@ -100,6 +100,7 @@ function CategoryTiles() {
                                     displayList(c.id);
                                     setCurrentHistoireIndex();
                                     setCurrentArtIndex();
+                                    setSelected()
                                     }}>Voir les grilles {c.name}</button> 
                                 
                                 </>
@@ -109,11 +110,11 @@ function CategoryTiles() {
                             </div>
                               <div className={`${classes.gridList} ${activeId === c.id ? classes.listOpened : classes.listClosed}`}>
                               {(list && gridL.length > 0) && (
+                                
                                 <ul className={classes.listItems}>
-                                  {gridL.map((l, index) => {
-                                   
+                                  {gridL.map((g, index) => {
                                     return (
-                                      <li key={l}>{l}  <GridContainer grid={gridListResult} index={index}/> </li>
+                                      <li key={g} className={`${isSelected === index ? classes.crosswordSelected : ''}`}><GridContainer grid={gridListResult} gridName={g} index={index}/> </li>
                                     );
                                   })}
                                 </ul>

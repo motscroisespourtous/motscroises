@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import bgHeader from '../assets/crosswordHeader.svg';
+
 
 const useStyles = makeStyles({
   headerWrapper: {
@@ -7,9 +7,11 @@ const useStyles = makeStyles({
     width: '100%',
   },
   root: {
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     display: 'flex',
-    height: '120px',
+    flexDirection: 'column',
+    height: '180px',
+    justifyContent: 'space-between',
     width: '100%',
     position: 'relative',
     '& nav': {
@@ -18,6 +20,7 @@ const useStyles = makeStyles({
       boxShadow: '2px 5px 9px -1px rgba(0,0,0,0.72)',
       display: 'flex',
       height: '48px',
+      justifyContent: 'center',
       width: '100%',
     },
     '& ul': {
@@ -52,16 +55,16 @@ const useStyles = makeStyles({
       flexDirection: 'column',
     },
   },
-  bg: {
-    position: 'absolute',
+  title: {
+    fontSize: '36px',
     display: 'flex',
-    height: '100%',
-    backgroundImage: `url(${bgHeader})`,
-    width: '120%',
-    transform: 'scale(1, 0.8) skew(44deg)',
-    opacity: '0.3',
-    left: '-50px',
-    top: 0,
+    alignItems: 'center',
+    flexGrow: '1',
+    width: '100%',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    fontWeight: 600,
+    padding: '0 22px'
   },
   opened : {
     '& span': {

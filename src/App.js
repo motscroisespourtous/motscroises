@@ -9,6 +9,7 @@ function App() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <div className={classes.bg}></div>
       <HashRouter>
         <Header />
         <Main />
