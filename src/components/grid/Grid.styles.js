@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'flex-end',
-        backgroundColor: 'rgba(0,0,0,0.8)',
+        backgroundColor: 'rgba(0,0,0,0.5)',
         color: '#fff',
         height: '100%',
         position: 'absolute',

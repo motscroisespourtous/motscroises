@@ -39,6 +39,7 @@ const useStyles = makeStyles({
       alignItems:' center',
       display: 'flex',
       color:'#fff',
+      fontWeight: 'bold',
       height: '100%',
       padding: '0 24px',
       textDecoration: 'none',
@@ -48,6 +49,9 @@ const useStyles = makeStyles({
     },
     '& .is--active': {
       backgroundColor: '#fff',
+      borderBottom: 'solid 10px #fff',
+      borderTop: 'solid 10px #fff',
+      boxShadow: '2px 5px 9px -1px rgba(0,0,0,0.72)',
       color: '#000',
     },
     '& .MuiButton-label': {

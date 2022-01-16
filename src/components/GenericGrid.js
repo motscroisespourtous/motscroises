@@ -22,7 +22,7 @@ function GenericGrid({genericName, data, cssGrid, defaultKey}) {
   const [messages, setMessages] = useState();
 
   const onCrosswordCorrect = useCallback(
-    (isCorrect) => {
+    (isCorrect, row, col) => {
       setMessages(isCorrect);
     },
   );
@@ -36,7 +36,7 @@ function GenericGrid({genericName, data, cssGrid, defaultKey}) {
 
   const onCellChange = useCallback(
     (row, col, char) => {
-      console.log(`onCellChange: "${row}", "${col}", "${char}"`);
+       console.log(`onCellChange: "${row}", "${col}", "${char}"`);
     },
     []
   );

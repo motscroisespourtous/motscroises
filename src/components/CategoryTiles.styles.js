@@ -146,9 +146,13 @@ itemList: {
   backgroundColor: 'transparent',
   border: 'none',
   fontSize: '20px',
+  height: '60px',
+  textAlign: 'left',
   textDecoration: 'underline',
   cursor: 'pointer',
-  padding: 0,
+  margin: '0 4px',
+  padding: '12px',
+  width: 'calc(100% - 8px)',
 },
 
 listItems: {
@@ -182,7 +186,8 @@ listItemsWrapper: {
   position: 'relative',
 },
 crosswordSelected: {
-  border: 'solid 1px red',
+  backgroundColor: 'rgba(255,255,255, 0.4)',
+  fontSize: '24px',
 },
 
 }));

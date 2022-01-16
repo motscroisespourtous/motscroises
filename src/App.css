@@ -44,6 +44,10 @@ body{
   background-color: rgba(255,255,255,0.5);
   border-radius: 5px;
 }
+
+.crossword.correct text{
+  fill: green !important;
+}
 .grid{}
 .clues{
 }
@@ -51,10 +55,17 @@ body{
 }
 .header{}
 .clue{
-}
-.correct{
-  color: green;
   font-weight: bold;
+}
+
+.clue.correct{
+  color: green;
+  text-decoration: line-through;
+}
+
+.clue.correct:before {
+    content: "🗸";
+    display: inline-block;
 }
 
 h4 {
