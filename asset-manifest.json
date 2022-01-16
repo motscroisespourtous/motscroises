@@ -1,16 +1,23 @@
 {
-  "files": {
-    "main.css": "/motscroises/static/css/main.073c9b0a.css",
-    "main.js": "/motscroises/static/js/main.86a0908a.js",
-    "static/js/787.8c3041ec.chunk.js": "/motscroises/static/js/787.8c3041ec.chunk.js",
-    "static/media/logo.svg": "/motscroises/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/motscroises/index.html",
-    "main.073c9b0a.css.map": "/motscroises/static/css/main.073c9b0a.css.map",
-    "main.86a0908a.js.map": "/motscroises/static/js/main.86a0908a.js.map",
-    "787.8c3041ec.chunk.js.map": "/motscroises/static/js/787.8c3041ec.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.86a0908a.js"
-  ]
+  "main.css": "/motscroises/static/css/main.8987eff7.chunk.css",
+  "main.js": "/motscroises/static/js/main.cbf6b0e0.chunk.js",
+  "main.js.map": "/motscroises/static/js/main.cbf6b0e0.chunk.js.map",
+  "runtime~main.js": "/motscroises/static/js/runtime~main.46b8bf8e.js",
+  "runtime~main.js.map": "/motscroises/static/js/runtime~main.46b8bf8e.js.map",
+  "static/js/2.56a24f7c.chunk.js": "/motscroises/static/js/2.56a24f7c.chunk.js",
+  "static/js/2.56a24f7c.chunk.js.map": "/motscroises/static/js/2.56a24f7c.chunk.js.map",
+  "static/js/3.603d711a.chunk.js": "/motscroises/static/js/3.603d711a.chunk.js",
+  "static/js/3.603d711a.chunk.js.map": "/motscroises/static/js/3.603d711a.chunk.js.map",
+  "index.html": "/motscroises/index.html",
+  "precache-manifest.0e62c37837bb1a9e90862e2f73f7786e.js": "/motscroises/precache-manifest.0e62c37837bb1a9e90862e2f73f7786e.js",
+  "service-worker.js": "/motscroises/service-worker.js",
+  "static/css/main.8987eff7.chunk.css.map": "/motscroises/static/css/main.8987eff7.chunk.css.map",
+  "static/media/art.jpg": "/motscroises/static/media/art.98d546c1.jpg",
+  "static/media/bg.jpg": "/motscroises/static/media/bg.2c13d4dc.jpg",
+  "static/media/enfant.jpg": "/motscroises/static/media/enfant.71be522c.jpg",
+  "static/media/geo.jpg": "/motscroises/static/media/geo.dded05b9.jpg",
+  "static/media/histoire.jpg": "/motscroises/static/media/histoire.f78c7c45.jpg",
+  "static/media/nature.jpg": "/motscroises/static/media/nature.4803f60a.jpg",
+  "static/media/science.jpg": "/motscroises/static/media/science.598fad86.jpg",
+  "static/media/sport.jpg": "/motscroises/static/media/sport.071bdc47.jpg"
 }
